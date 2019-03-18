@@ -1,7 +1,7 @@
 package data_structure;
 
 class BinarySearch {
-
+    // 이진 탐색
     int start(int[] numbers, int searchNo) {
         int first = 0;
         int last = numbers.length - 1;
@@ -20,6 +20,7 @@ class BinarySearch {
         return -1;
     }
 
+    // 재귀를 이용한 이진탐색
     public static int recursiveBinarySearch(int[] numbers, int first, int last, int target) {
         int mid;
         if (first > last) {
