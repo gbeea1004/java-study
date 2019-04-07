@@ -9,10 +9,10 @@ public class ContainsExactlyTest {
     @Test
     public void 모든값이_포함되어있는가() {
         List<String> alphabet = new ArrayList<>();
-        alphabet.add("A");
+        alphabet.add("User");
         alphabet.add("B");
         alphabet.add("C");
-        assertThat(alphabet).containsExactly("A", "B", "C");
+        assertThat(alphabet).containsExactly("User", "B", "C");
     }
 
     @Test(expected = AssertionError.class)
