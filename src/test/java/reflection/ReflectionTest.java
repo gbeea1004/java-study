@@ -2,7 +2,9 @@ package reflection;
 
 import org.junit.Test;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 
 public class ReflectionTest {
     @Test
@@ -20,5 +22,13 @@ public class ReflectionTest {
         for (Field field : user.getDeclaredFields()) {
             System.out.println(field.getName());
         }
+    }
+
+    @Test
+    public void 객체생성() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Class user = User.class;
+        Constructor cs = user.getConstructor(new Class[]{String.class, int.class});
+        User lime = (User) cs.newInstance("라임", 10);
+        System.out.println(lime.toString());
     }
 }
