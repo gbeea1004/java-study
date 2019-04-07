@@ -9,6 +9,11 @@ public class User {
         this.age = age;
     }
 
+    private User() {
+        this.name = "관리자";
+        this.age = 50;
+    }
+
     public String getName() {
         return name;
     }

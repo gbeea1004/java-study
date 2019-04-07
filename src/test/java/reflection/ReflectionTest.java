@@ -31,4 +31,13 @@ public class ReflectionTest {
         User lime = (User) cs.newInstance("라임", 10);
         System.out.println(lime.toString());
     }
+
+    @Test
+    public void private_생성자_객체생성() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Class user = User.class;
+        Constructor cs = user.getDeclaredConstructor();
+        cs.setAccessible(true); // access 가능하도록 변경
+        User master = (User) cs.newInstance();
+        System.out.println(master.toString());
+    }
 }
