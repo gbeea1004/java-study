@@ -1,8 +1,7 @@
 package stream;
 
-public class User {
+public class User extends Person {
     private String name;
-    private int age;
 
     public User(String name, int age) {
         this.name = name;
@@ -15,5 +14,10 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    void move() {
+        System.out.println("움직임");
     }
 }
