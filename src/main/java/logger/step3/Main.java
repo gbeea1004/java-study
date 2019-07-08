@@ -2,9 +2,10 @@ package logger.step3;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 /*
-* Logback 사용
-*/
+ * Logback 사용
+ */
 public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
@@ -19,7 +20,7 @@ public class Main {
 //        logback에서 해결방안이 등장
 //        내부적으로 debug가 가능한 상태인지 검사
 //        debug 가능이면 포맷팅을 통해서 연산
-        log.debug("logback 방식 {}", 100);
+        log.debug("logback 방식 {} {}", 100, 200);
 
         log.trace("trace Log");
         log.debug("debug Log");

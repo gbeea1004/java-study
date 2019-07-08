@@ -34,4 +34,14 @@ public class StreamTest {
         System.out.println("flatMap 사용 시");
         stringArrStream.flatMap(Arrays::stream).forEach(System.out::println);
     }
+
+    @Test
+    public void 재사용불가() {
+        int[] no = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] changeNo = Arrays.stream(no)
+                .map(e -> e * 2)
+                .toArray();
+        System.out.println(Arrays.toString(no));
+        System.out.println(Arrays.toString(changeNo));
+    }
 }
