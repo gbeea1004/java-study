@@ -2,6 +2,7 @@ package exception.step3;
 
 /*
  * unchecked 예외 사용
+ * 예외 발생 시 트랜잭션 처리로 롤백이 된다고 하는데 아직 와닿지는 않는다.
  */
 public class Main {
     public static void main(String[] args) {
