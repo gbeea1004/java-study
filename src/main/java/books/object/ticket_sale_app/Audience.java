@@ -10,4 +10,16 @@ public class Audience {
     public boolean hasInvitation() {
         return bag.hasInvitation();
     }
+
+    public void receiveTicket(Ticket ticket) {
+        bag.setTicket(ticket);
+    }
+
+    public void plusAmount(Long amount) {
+        bag.plusAmount(amount);
+    }
+
+    public void minusAmount(Long amount) {
+        bag.minusAmount(amount);
+    }
 }

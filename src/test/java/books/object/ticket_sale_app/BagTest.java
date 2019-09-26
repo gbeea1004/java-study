@@ -7,7 +7,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BagTest {
     @Test
     public void 초대장을_가지고_있는가() {
-
+        assertThat(new Bag(new Invitation(), 1000L).hasInvitation()).isEqualTo(true);
+        assertThat(new Bag(1000L).hasInvitation()).isEqualTo(false);
     }
 
     @Test
