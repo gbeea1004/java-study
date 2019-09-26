@@ -1,4 +1,4 @@
-package books.object;
+package books.object.ticket_sale_app;
 
 public class Audience {
     private Bag bag;
@@ -7,7 +7,7 @@ public class Audience {
         this.bag = bag;
     }
 
-    public Bag getBag() {
-        return bag;
+    public boolean hasInvitation() {
+        return bag.hasInvitation();
     }
 }
