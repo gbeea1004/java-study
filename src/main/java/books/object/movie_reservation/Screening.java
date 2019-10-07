@@ -14,4 +14,15 @@ public class Screening {
     }
 
 
+    public boolean isSequence(int sequence) {
+        return this.sequence == sequence;
+    }
+
+    public Money getMovieFee() {
+        return movie.getFee();
+    }
+
+    public LocalDateTime getStartTime() {
+        return whenScreened;
+    }
 }
