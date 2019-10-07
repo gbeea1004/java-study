@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Money {
+    public static final Money ZERO = Money.wons(0);
     private final BigDecimal amount;
 
     private Money(BigDecimal amount) {
