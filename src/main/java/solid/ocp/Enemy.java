@@ -7,7 +7,7 @@ public class Enemy extends Character {
     public Enemy(PathPattern pathPattern) {
         this.pathPattern = pathPattern;
     }
-    
+
     @Override
     public void draw() {
         int x = pathPattern.nextX();
