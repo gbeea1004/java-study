@@ -8,7 +8,7 @@ import java.util.List;
     1. 가격 정책이 추가될 때마다 if-else가 추가되어 calculator()를 수정하는 것이 점점 어려워진다.
     2. 서로 다른 계산 정책이 한 코드에 섞여있어, 코드 분석을 어렵게 함.
  */
-public class Calculator {
+class Calculator {
     public int calculator(boolean firstGuest, List<Item> items) {
         int sum = 0;
         for (Item item : items) {

@@ -1,4 +1,4 @@
-package design.strategy.step1;
+package design.strategy.step2;
 
 class Item {
     private int price;
