@@ -1,6 +1,7 @@
 package baseball_game;
 
 import baseball_game.view.InputView;
+import baseball_game.view.OutputView;
 
 import java.util.Scanner;
 
@@ -14,7 +15,9 @@ public class GameApp {
             if (score.isFinish()) {
                 isPlaying = false;
             }
+            OutputView.showGameBoard(score);
         }
+        OutputView.finishGame();
         scanner.close();
     }
 }
