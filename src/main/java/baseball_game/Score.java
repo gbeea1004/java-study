@@ -14,10 +14,10 @@ public class Score {
     }
 
     public int strikes() {
-        return 0;
+        return strick;
     }
 
     public int balls() {
-        return 0;
+        return ball;
     }
 }
