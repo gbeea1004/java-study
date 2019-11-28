@@ -20,4 +20,8 @@ public class Number {
 
         return digitOfOne == digitOfTwo || digitOfOne == digitOfThree || digitOfTwo == digitOfThree;
     }
+
+    public int getNo() {
+        return no;
+    }
 }

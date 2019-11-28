@@ -1,5 +1,6 @@
 package baseball_game;
 
+import baseball_game.domain.Number;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,16 +12,16 @@ public class GamePlayTest {
     @Before
     public void setUp() throws Exception {
         // Given : 상황, 조건
-        game = new GamePlay(479); // 정답 479
+        game = new GamePlay(new Number(479)); // 정답 479
     }
 
     @Test
     public void noMatch() {
         // When : 기능 실행
-        Score score = game.guess(123); // 예측 123
+        Score score = game.guess(new Number(123)); // 예측 123
         assertNoMatch(score); // 0 스트라이크 0 볼
 
-        Score score2 = game.guess(568); // 예측 568
+        Score score2 = game.guess(new Number(568)); // 예측 568
         assertNoMatch(score2); // 0 스트라이크 0 볼
     }
 
@@ -32,11 +33,11 @@ public class GamePlayTest {
 
     @Test
     public void allStrikes() {
-        Score score = game.guess(479); // 예측 479
+        Score score = game.guess(new Number(479)); // 예측 479
         assertAllStrikes(score);
 
-        GamePlay game2 = new GamePlay(124);
-        Score score2 = game2.guess(124); // 예측 124
+        GamePlay game2 = new GamePlay(new Number(124));
+        Score score2 = game2.guess(new Number(124)); // 예측 124
         assertAllStrikes(score2);
     }
 
@@ -47,13 +48,13 @@ public class GamePlayTest {
 
     @Test
     public void someStrikes() {
-        assertMatch(game.guess(359), 1, 0);
-        assertMatch(game.guess(372), 1, 0);
-        assertMatch(game.guess(412), 1, 0);
+        assertMatch(game.guess(new Number(359)), 1, 0);
+        assertMatch(game.guess(new Number(372)), 1, 0);
+        assertMatch(game.guess(new Number(412)), 1, 0);
 
-        assertMatch(game.guess(478), 2, 0);
-        assertMatch(game.guess(379), 2, 0);
-        assertMatch(game.guess(419), 2, 0);
+        assertMatch(game.guess(new Number(478)), 2, 0);
+        assertMatch(game.guess(new Number(379)), 2, 0);
+        assertMatch(game.guess(new Number(419)), 2, 0);
     }
 
     public void assertMatch(Score score, int strike, int ball) {
@@ -63,15 +64,15 @@ public class GamePlayTest {
 
     @Test
     public void someBalls() {
-        assertMatch(game.guess(124), 0, 1);
-        assertMatch(game.guess(724), 0, 2);
-        assertMatch(game.guess(794), 0, 3);
+        assertMatch(game.guess(new Number(124)), 0, 1);
+        assertMatch(game.guess(new Number(724)), 0, 2);
+        assertMatch(game.guess(new Number(794)), 0, 3);
     }
 
     @Test
     public void someStrikesSomeBalls() {
-        assertMatch(game.guess(497), 1, 2);
-        assertMatch(game.guess(974), 1, 2);
-        assertMatch(game.guess(749), 1, 2);
+        assertMatch(game.guess(new Number(497)), 1, 2);
+        assertMatch(game.guess(new Number(974)), 1, 2);
+        assertMatch(game.guess(new Number(749)), 1, 2);
     }
 }

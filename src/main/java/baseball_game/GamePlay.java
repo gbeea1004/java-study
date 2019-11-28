@@ -1,20 +1,22 @@
 package baseball_game;
 
-public class GamePlay {
-    private int value;
+import baseball_game.domain.Number;
 
-    public GamePlay(int value) {
-        this.value = value;
+public class GamePlay {
+    private Number number;
+
+    public GamePlay(Number number) {
+        this.number = number;
     }
 
-    public Score guess(int guess) {
+    public Score guess(Number guess) {
         int strikeCount = 0;
         int ballCount = 0;
         for (int i = 1; i <= 3; i++) {
-            if (pos(value, i) == pos(guess, i)) {
+            if (pos(number.getNo(), i) == pos(guess.getNo(), i)) {
                 strikeCount++;
             } else {
-                if (String.valueOf(value).contains(String.valueOf(pos(guess, i)))) {
+                if (String.valueOf(number.getNo()).contains(String.valueOf(pos(guess.getNo(), i)))) {
                     ballCount++;
                 }
             }
