@@ -14,7 +14,7 @@ public class BaseballGameTest {
         Score score = game.guess(123);
 
         // 0 스트라이크 0 볼
-        assertThat(score.strikes()).isEquealTo(0);
-        assertThat(score.balls()).isEquealTo(0);
+        assertThat(score.strikes()).isEqualTo(0);
+        assertThat(score.balls()).isEqualTo(0);
     }
 }
