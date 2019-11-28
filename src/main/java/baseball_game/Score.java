@@ -1,20 +1,20 @@
 package baseball_game;
 
 public class Score {
-    private int strick;
+    private int strike;
     private int ball;
 
-    public Score(int strick, int ball) {
-        this.strick = strick;
+    public Score(int strike, int ball) {
+        this.strike = strike;
         this.ball = ball;
     }
 
-    public static Score create(int strick, int ball) {
-        return new Score(strick, ball);
+    public static Score create(int strike, int ball) {
+        return new Score(strike, ball);
     }
 
     public int strikes() {
-        return strick;
+        return strike;
     }
 
     public int balls() {
