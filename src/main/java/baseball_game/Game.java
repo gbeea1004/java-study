@@ -10,15 +10,20 @@ public class Game {
 
     public Score guess(int guess) {
         int strikeCount = 0;
-        if (value % 10 == guess % 10) {
-            strikeCount++;
-        }
-        if (value / 10 % 10 == guess / 10 % 10) {
-            strikeCount++;
-        }
-        if (value / 100 == guess / 100) {
-            strikeCount++;
+        for (int i = 1; i <= 3; i++) {
+            if (pos(value, i) == pos(guess, i)) {
+                strikeCount++;
+            }
         }
         return Score.create(strikeCount,0);
+    }
+
+    private int pos(int value, int pos) {
+        switch (pos) {
+            case 1 : return value % 10;
+            case 2 : return value / 10 % 10;
+            case 3 : return value / 100;
+        }
+        throw new IllegalArgumentException();
     }
 }
