@@ -15,7 +15,7 @@ public class GamePlayTest {
     }
 
     @Test
-    public void nomatch() {
+    public void noMatch() {
         // When : 기능 실행
         Score score = game.guess(123); // 예측 123
         assertNoMatch(score); // 0 스트라이크 0 볼
