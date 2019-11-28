@@ -5,13 +5,13 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BaseballGameTest {
-    private Game game;
+public class GamePlayTest {
+    private GamePlay game;
 
     @Before
     public void setUp() throws Exception {
         // Given : 상황, 조건
-        game = new Game(479); // 정답 479
+        game = new GamePlay(479); // 정답 479
     }
 
     @Test
@@ -35,7 +35,7 @@ public class BaseballGameTest {
         Score score = game.guess(479); // 예측 479
         assertAllStrikes(score);
 
-        Game game2 = new Game(124);
+        GamePlay game2 = new GamePlay(124);
         Score score2 = game2.guess(124); // 예측 124
         assertAllStrikes(score2);
     }

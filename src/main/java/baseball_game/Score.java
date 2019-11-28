@@ -20,4 +20,8 @@ public class Score {
     public int balls() {
         return ball;
     }
+
+    public boolean isFinish() {
+        return strike == 3;
+    }
 }

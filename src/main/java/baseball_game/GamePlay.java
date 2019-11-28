@@ -1,9 +1,9 @@
 package baseball_game;
 
-public class Game {
+public class GamePlay {
     private int value;
 
-    public Game(int value) {
+    public GamePlay(int value) {
         this.value = value;
     }
 
