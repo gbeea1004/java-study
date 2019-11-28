@@ -73,9 +73,5 @@ public class BaseballGameTest {
         assertMatch(game.guess(497), 1, 2);
         assertMatch(game.guess(974), 1, 2);
         assertMatch(game.guess(749), 1, 2);
-
-        assertMatch(game.guess(471), 2, 1);
-        assertMatch(game.guess(419), 2, 1);
-        assertMatch(game.guess(379), 2, 1);
     }
 }
