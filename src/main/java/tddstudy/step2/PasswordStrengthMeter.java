@@ -2,17 +2,20 @@ package tddstudy.step2;
 
 public class PasswordStrengthMeter {
     public PasswordStrength meter(String password) {
-        if (password == null || password.isEmpty()) {
-            return PasswordStrength.INVALID;
-        }
+        if (password == null || password.isEmpty()) return PasswordStrength.INVALID;
+        int meterCount = getMeterCount(password);
+
+        if (meterCount <= 1) return PasswordStrength.WEAK;
+        if (meterCount == 2) return PasswordStrength.NORMAL;
+        return PasswordStrength.STRONG;
+    }
+
+    private int getMeterCount(String password) {
         int meterCount = 0;
         if (password.length() >= 8) meterCount++;
         if (isContainsNum(password)) meterCount++;
         if (isContainsUpper(password)) meterCount++;
-
-        if (meterCount == 1) return PasswordStrength.WEAK;
-        if (meterCount == 2) return PasswordStrength.NORMAL;
-        return PasswordStrength.STRONG;
+        return meterCount;
     }
 
     private boolean isContainsUpper(String password) {
