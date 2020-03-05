@@ -5,23 +5,13 @@ public class PasswordStrengthMeter {
         if (password == null || password.isEmpty()) {
             return PasswordStrength.INVALID;
         }
-        boolean lengthEnough = password.length() >= 8;
-        boolean containsNum = isContainsNum(password);
-        boolean containsUpper = isContainsUpper(password);
+        int meterCount = 0;
+        if (password.length() >= 8) meterCount++;
+        if (isContainsNum(password)) meterCount++;
+        if (isContainsUpper(password)) meterCount++;
 
-        if (!containsNum && !containsUpper && lengthEnough) {
-            return PasswordStrength.WEAK;
-        }
-        if (containsNum && !containsUpper && !lengthEnough) {
-            return PasswordStrength.WEAK;
-        }
-        if (!containsNum && containsUpper && !lengthEnough) {
-            return PasswordStrength.WEAK;
-        }
-
-        if (!lengthEnough) return PasswordStrength.NORMAL;
-        if (!containsNum) return PasswordStrength.NORMAL;
-        if (!containsUpper) return PasswordStrength.NORMAL;
+        if (meterCount == 1) return PasswordStrength.WEAK;
+        if (meterCount == 2) return PasswordStrength.NORMAL;
         return PasswordStrength.STRONG;
     }
 
