@@ -1,13 +1,15 @@
 package tddstudy.step3;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 
 public class PayData {
     private LocalDate firstBillingDate;
     private LocalDate billingDate;
     private int payAmount;
 
-    public PayData() { }
+    public PayData() {
+    }
 
     public PayData(LocalDate firstBillingDate, LocalDate billingDate, int payAmount) {
         this.firstBillingDate = firstBillingDate;
@@ -27,14 +29,37 @@ public class PayData {
         return firstBillingDate == null;
     }
 
-    public LocalDate changeBillingDate() {
-        return billingDate.plusMonths(1).withDayOfMonth(firstBillingDate.getDayOfMonth());
+    public LocalDate expiryDateUsingFirstBillingDate() {
+        final int dayOfFirstBilling = firstBillingDate.getDayOfMonth();
+        LocalDate candidateExp = billingDate.plusMonths(addedMonths());
+
+        if (isSameDayOfMonth(dayOfFirstBilling, candidateExp)) {
+            final int dayLenOfCandiMon = lastDayOfMonth(candidateExp);
+            if (dayLenOfCandiMon < dayOfFirstBilling) {
+                return candidateExp.withDayOfMonth(dayLenOfCandiMon);
+            }
+        }
+        return billingDate.plusMonths(addedMonths())
+                          .withDayOfMonth(dayOfFirstBilling);
+    }
+
+    private int lastDayOfMonth(LocalDate candidateExp) {
+        return YearMonth.from(candidateExp).lengthOfMonth();
+    }
+
+    private boolean isSameDayOfMonth(int dayOfFirstBilling, LocalDate candidateExp) {
+        return dayOfFirstBilling != candidateExp.getDayOfMonth();
+    }
+
+    public int addedMonths() {
+        return payAmount / 10000;
     }
 
     public static class Builder {
         private PayData data = new PayData();
 
-        public Builder() { }
+        public Builder() {
+        }
 
         public Builder billingDate(LocalDate billingDate) {
             data.billingDate = billingDate;
