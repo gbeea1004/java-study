@@ -52,7 +52,15 @@ public class PayData {
     }
 
     public int addedMonths() {
-        return payAmount / 10000;
+        final int oneHundredThousand = 100000;
+        int addMonth = 0;
+        int payAmount = this.payAmount;
+        if (payAmount / oneHundredThousand > 0) {
+            addMonth += (payAmount / oneHundredThousand * 12);
+            payAmount %= oneHundredThousand;
+        }
+        addMonth += payAmount / 10000;
+        return addMonth;
     }
 
     public static class Builder {
