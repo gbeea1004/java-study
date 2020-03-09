@@ -1,9 +1,11 @@
 package data_structure.collection;
 
+import java.util.Arrays;
+
 public class ArrayList implements List {
     private static final int DEFAULT_VALUE = 10;
     private Object[] elementData;
-    private int currentIndex;
+    private int size;
 
     ArrayList() {
         this.elementData = new Object[DEFAULT_VALUE];
@@ -19,13 +21,40 @@ public class ArrayList implements List {
         }
     }
 
+    private void rangeCheckForSize() {
+        if (size == elementData.length) {
+            elementData = Arrays.copyOf(elementData, size() * 2);
+        }
+    }
+
+    private void rangeCheckForAdd(int index) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("범위를 정확히 입력하세요.");
+        }
+    }
+
     @Override
     public void add(Object object) {
-        elementData[currentIndex++] = object;
+        rangeCheckForSize();
+        elementData[size++] = object;
+    }
+
+    @Override
+    public void add(int index, Object element) {
+        rangeCheckForAdd(index);
+
+        System.arraycopy(elementData, index, elementData, index + 1, size - index);
+        elementData[index] = element;
+        size++;
     }
 
     @Override
     public Object get(int index) {
         return elementData[index];
+    }
+
+    @Override
+    public int size() {
+        return size;
     }
 }
