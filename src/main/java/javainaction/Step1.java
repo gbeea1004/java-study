@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Step1 {
     private static final Logger log = LoggerFactory.getLogger(Step1.class);
@@ -19,23 +19,13 @@ public class Step1 {
         menu.add(new Dish(400, "치킨"));
         menu.add(new Dish(500, "밀리터리버거"));
 
-        List<Dish> lowCaloricDishes = new ArrayList<>();
-        for (Dish dish : menu) {
-            if (dish.getCalories() < 400) {
-                lowCaloricDishes.add(dish);
-            }
-        }
-        Collections.sort(lowCaloricDishes, new Comparator<Dish>() {
-            @Override
-            public int compare(Dish dish1, Dish dish2) {
-                return Integer.compare(dish1.getCalories(), dish2.getCalories());
-                
-            }
-        });
-        List<String> lowCaloricDishesName = new ArrayList<>();
-        for (Dish dish : lowCaloricDishes) {
-            lowCaloricDishesName.add(dish.getName());
-            log.debug(dish.getName());
+        List<String> lowCaloricDishesName = menu.stream()
+                                                .filter(d -> d.getCalories() < 400)
+                                                .sorted(Comparator.comparing(Dish::getCalories))
+                                                .map(Dish::getName)
+                                                .collect(Collectors.toList());
+        for (String name : lowCaloricDishesName) {
+            log.debug(name);
         }
     }
 }
