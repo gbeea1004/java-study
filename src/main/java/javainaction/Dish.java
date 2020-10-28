@@ -2,10 +2,16 @@ package javainaction;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 @AllArgsConstructor
 public class Dish {
-    private int calories;
-    private String name;
+    private final String name;
+    private final boolean vegetarian;
+    private final int calories;
+    private final Type type;
+
+    public enum Type { MEAT, FISH, OTHER }
 }
