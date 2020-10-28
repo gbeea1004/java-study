@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,12 +23,10 @@ public class Step1 {
         menu.add(new Dish("salmon", false, 450, Dish.Type.FISH));
 
         List<String> lowCaloricDishesName = menu.stream()
-                                                .filter(d -> d.getCalories() < 400)
-                                                .sorted(Comparator.comparing(Dish::getCalories))
+                                                .filter(d -> d.getCalories() > 300)
                                                 .map(Dish::getName)
+                                                .limit(3)
                                                 .collect(Collectors.toList());
-        for (String name : lowCaloricDishesName) {
-            log.debug(name);
-        }
+        System.out.println(lowCaloricDishesName);
     }
 }
