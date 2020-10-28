@@ -29,6 +29,7 @@ public class Step1 {
             @Override
             public int compare(Dish dish1, Dish dish2) {
                 return Integer.compare(dish1.getCalories(), dish2.getCalories());
+                
             }
         });
         List<String> lowCaloricDishesName = new ArrayList<>();
