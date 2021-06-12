@@ -1,13 +1,13 @@
 package data_structure.collection;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ArrayListTest {
+class ArrayListTest {
 
     @Test
-    public void addValueAndGetValueForIndex_Then_CorrespondingIndexValue() {
+    void addValueAndGetValueForIndex_Then_CorrespondingIndexValue() {
         List numbers = new ArrayList();
         numbers.add("A");
         assertThat(numbers.get(0)).isEqualTo("A");
@@ -28,19 +28,19 @@ public class ArrayListTest {
     }
 
     @Test
-    public void getDefaultSize_Then_10() {
+    void getDefaultSize_Then_10() {
         List numbers = new ArrayList();
         assertThat(numbers.size()).isEqualTo(10);
     }
 
     @Test
-    public void getSizeToSpecify_Then_SpecifySize() {
+    void getSizeToSpecify_Then_SpecifySize() {
         List numbers = new ArrayList(20);
         assertThat(numbers.size()).isEqualTo(20);
     }
 
     @Test
-    public void doubleSizeWhenExceedingSize_Then_doubleSize() {
+    void doubleSizeWhenExceedingSize_Then_doubleSize() {
         List numbers = new ArrayList(2);
         numbers.add("a");
         numbers.add("a");

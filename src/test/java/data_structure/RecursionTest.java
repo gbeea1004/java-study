@@ -1,10 +1,10 @@
 package data_structure;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class RecursionTest {
+class RecursionTest {
     @Test
-    public void 하노이타워() {
+    void 하노이타워() {
         Hanoi.HanoiTowerMove(3, 'A', 'B', 'C');
     }
 }

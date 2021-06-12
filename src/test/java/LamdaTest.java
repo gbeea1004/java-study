@@ -1,10 +1,10 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class LamdaTest {
+class LamdaTest {
     @Test
-    public void 람다식안쓸때() {
+    void 람다식안쓸때() {
         assertThat(max(1, 2)).isEqualTo(2);
     }
 
@@ -13,7 +13,7 @@ public class LamdaTest {
     }
 
     @Test
-    public void 람다식쓸때() {
+    void 람다식쓸때() {
         Calculator calculator = (int a, int b) -> a > b ? a : b;
         assertThat(calculator.max(1, 2)).isEqualTo(2);
     }

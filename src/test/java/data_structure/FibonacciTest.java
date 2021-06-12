@@ -1,12 +1,12 @@
 package data_structure;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FibonacciTest {
+class FibonacciTest {
     @Test
-    public void 피보나치수열() {
+    void 피보나치수열() {
         assertThat(Fibo.startNo(1)).isEqualTo(0);
         assertThat(Fibo.startNo(2)).isEqualTo(1);
         assertThat(Fibo.startNo(3)).isEqualTo(1);

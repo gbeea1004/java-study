@@ -1,15 +1,16 @@
 package baseball_game.domain;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-public class NumberTest {
-    @Test(expected = IllegalArgumentException.class)
-    public void givenThreeDigitsNumberThenError() {
-        Number number = new Number(1234);
+class NumberTest {
+    @Test
+    void givenThreeDigitsNumberThenError() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Number(1234));
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void givenDuplicateNumberThenError() {
-        Number number = new Number(111);
+    @Test
+    void givenDuplicateNumberThenError() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Number(111));
     }
 }

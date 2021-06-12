@@ -1,10 +1,10 @@
 package books.object.ticket_sale_app;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class TheaterTest {
+class TheaterTest {
     @Test
-    public void enter() {
+    void enter() {
         Ticket[] tickets = new Ticket[3];
         for (int i = 0; i < tickets.length; i++) {
             tickets[i] = new Ticket();

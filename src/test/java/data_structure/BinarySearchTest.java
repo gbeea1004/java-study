@@ -1,12 +1,12 @@
 package data_structure;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BinarySearchTest {
+class BinarySearchTest {
     @Test
-    public void 이진탐색() {
+    void 이진탐색() {
         int[] numbers = {1, 3, 5, 7, 9};
         BinarySearch binarySearch = new BinarySearch();
 
@@ -19,7 +19,7 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void 재귀를_이용한_이진탐색() {
+    void 재귀를_이용한_이진탐색() {
         int[] numbers = {1, 3, 5, 7, 9};
         assertThat(BinarySearch.recursiveBinarySearch(numbers, 0, numbers.length - 1, 1)).isEqualTo(0);
         assertThat(BinarySearch.recursiveBinarySearch(numbers, 0, numbers.length - 1, 3)).isEqualTo(1);

@@ -1,4 +1,4 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import stream.User;
 
 import java.util.Arrays;
@@ -6,25 +6,26 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class StreamTest {
+class StreamTest {
     @Test
-    public void 연산() {
+    void 연산() {
         Stream<String> stream = Stream.of("1", "2");
         assertThat(stream.count()).isEqualTo(2);
     }
 
     @Test
-    public void map() {
+    void map() {
         Stream<User> userStream = Stream.of(
                 new User("건희", 27),
                 new User("도비", 1),
                 new User("우디", 24)
         );
-        userStream.map(User::getName).forEach(System.out::println);
+        userStream.map(User::getName)
+                  .forEach(System.out::println);
     }
 
     @Test
-    public void flatMap() {
+    void flatMap() {
         Stream<String[]> stringArrStream = Stream.of(
                 new String[]{"abc", "라임", "임다"},
                 new String[]{"비와이", "제이플라", "제시"},
@@ -32,15 +33,16 @@ public class StreamTest {
         );
 
         System.out.println("flatMap 사용 시");
-        stringArrStream.flatMap(Arrays::stream).forEach(System.out::println);
+        stringArrStream.flatMap(Arrays::stream)
+                       .forEach(System.out::println);
     }
 
     @Test
-    public void 재사용불가() {
+    void 재사용불가() {
         int[] no = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int[] changeNo = Arrays.stream(no)
-                .map(e -> e * 2)
-                .toArray();
+                               .map(e -> e * 2)
+                               .toArray();
         System.out.println(Arrays.toString(no));
         System.out.println(Arrays.toString(changeNo));
     }

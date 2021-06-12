@@ -1,10 +1,10 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ArrayTest {
+class ArrayTest {
     @Test
-    public void arrayCopy() {
+    void arrayCopy() {
         String[] students = {"피터", "라임", "스컬", "레드", "레시안"};
         String[] newStudents = new String[students.length];
         System.arraycopy(students, 1, newStudents, 0, 1);

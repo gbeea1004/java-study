@@ -1,22 +1,22 @@
 package baseball_game;
 
 import baseball_game.domain.Number;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class GamePlayTest {
+class GamePlayTest {
     private GamePlay game;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         // Given : 상황, 조건
         game = new GamePlay(new Number(479)); // 정답 479
     }
 
     @Test
-    public void noMatch() {
+    void noMatch() {
         // When : 기능 실행
         Score score = game.guess(new Number(123)); // 예측 123
         assertNoMatch(score); // 0 스트라이크 0 볼
@@ -32,7 +32,7 @@ public class GamePlayTest {
     }
 
     @Test
-    public void allStrikes() {
+    void allStrikes() {
         Score score = game.guess(new Number(479)); // 예측 479
         assertAllStrikes(score);
 
@@ -47,7 +47,7 @@ public class GamePlayTest {
     }
 
     @Test
-    public void someStrikes() {
+    void someStrikes() {
         assertMatch(game.guess(new Number(359)), 1, 0);
         assertMatch(game.guess(new Number(372)), 1, 0);
         assertMatch(game.guess(new Number(412)), 1, 0);
@@ -63,14 +63,14 @@ public class GamePlayTest {
     }
 
     @Test
-    public void someBalls() {
+    void someBalls() {
         assertMatch(game.guess(new Number(124)), 0, 1);
         assertMatch(game.guess(new Number(724)), 0, 2);
         assertMatch(game.guess(new Number(794)), 0, 3);
     }
 
     @Test
-    public void someStrikesSomeBalls() {
+    void someStrikesSomeBalls() {
         assertMatch(game.guess(new Number(497)), 1, 2);
         assertMatch(game.guess(new Number(974)), 1, 2);
         assertMatch(game.guess(new Number(749)), 1, 2);

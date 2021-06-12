@@ -1,21 +1,21 @@
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class TimeCheckTest {
+class TimeCheckTest {
     private TimeCheck timeCheck;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         timeCheck = new TimeCheck();
     }
 
     @Test
-    public void checkCurrentTimeMillis() {
+    void checkCurrentTimeMillis() {
         timeCheck.checkCurrentTimeMillis();
     }
 
     @Test
-    public void checkCurrentTimeNano() {
+    void checkCurrentTimeNano() {
         timeCheck.checkCurrentTimeNano();
     }
 }

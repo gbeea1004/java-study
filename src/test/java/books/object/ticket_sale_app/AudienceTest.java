@@ -1,18 +1,16 @@
 package books.object.ticket_sale_app;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-public class AudienceTest {
+class AudienceTest {
     @Test
-    public void 초대장을_가진_관람객() {
+    void 초대장을_가진_관람객() {
         Audience audience = new Audience(new Bag(new Invitation(), 1000L));
 //        assertThat(audience.hasInvitation()).isEqualTo(true);
     }
 
     @Test
-    public void 초대장을_가지지않은_관람객() {
+    void 초대장을_가지지않은_관람객() {
         Audience audience = new Audience(new Bag(1000L));
 //        assertThat(audience.hasInvitation()).isEqualTo(false);
     }

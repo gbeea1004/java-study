@@ -1,10 +1,10 @@
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.StringTokenizer;
 
-public class StringTokenizerTest {
+class StringTokenizerTest {
     @Test
-    public void 문자열_얻기() {
+    void 문자열_얻기() {
         String source = "100,200,300,400";
         StringTokenizer st = new StringTokenizer(source, ",");
 

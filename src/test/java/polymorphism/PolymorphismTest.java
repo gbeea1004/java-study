@@ -1,22 +1,22 @@
 package polymorphism;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PolymorphismTest {
+class PolymorphismTest {
     private Car avante;
     private Car porsche;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         avante = new Avante();
         porsche = new Porsche();
     }
 
     @Test
-    public void 다형성() {
+    void 다형성() {
         assertThat(avante.isSameName("아반떼")).isTrue();
         assertThat(porsche.isSameName("포르쉐")).isTrue();
 
@@ -27,7 +27,7 @@ public class PolymorphismTest {
     }
 
     @Test
-    public void instanceof_연산자() {
+    void instanceof_연산자() {
         assertThat(avante.exhaustSound()).isEqualTo("붕");
         assertThat(porsche.exhaustSound()).isEqualTo("부우우우와아아아아앙!!!!!!!!!!!!");
 

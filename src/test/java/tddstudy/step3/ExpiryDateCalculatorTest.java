@@ -1,15 +1,15 @@
 package tddstudy.step3;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
-public class ExpiryDateCalculatorTest {
+class ExpiryDateCalculatorTest {
 
     @Test
-    public void 만원_납부하면_한달_뒤가_만료일이_됨() {
+    void 만원_납부하면_한달_뒤가_만료일이_됨() {
         assertExpiryDate(
                 PayData.builder()
                        .billingDate(LocalDate.of(2020, 3, 6))
@@ -27,7 +27,7 @@ public class ExpiryDateCalculatorTest {
     }
 
     @Test
-    public void 납부일과_한달_뒤_일자가_같지_않음() {
+    void 납부일과_한달_뒤_일자가_같지_않음() {
         assertExpiryDate(
                 PayData.builder()
                        .billingDate(LocalDate.of(2019, 1, 31))
@@ -52,7 +52,7 @@ public class ExpiryDateCalculatorTest {
     }
 
     @Test
-    public void 첫_납부일과_만료일_일자가_다를때_만원_납부() {
+    void 첫_납부일과_만료일_일자가_다를때_만원_납부() {
         assertExpiryDate(
                 PayData.builder()
                        .firstBillingDate(LocalDate.of(2019, 1, 31))
@@ -82,7 +82,7 @@ public class ExpiryDateCalculatorTest {
     }
 
     @Test
-    public void 이만원_이상_납부하면_비례해서_만료일_계산() {
+    void 이만원_이상_납부하면_비례해서_만료일_계산() {
         assertExpiryDate(
                 PayData.builder()
                        .billingDate(LocalDate.of(2019, 3, 1))
@@ -93,7 +93,7 @@ public class ExpiryDateCalculatorTest {
     }
 
     @Test
-    public void 첫_납부일과_만료일_일자가_다를때_이만원_이상_납부() {
+    void 첫_납부일과_만료일_일자가_다를때_이만원_이상_납부() {
         assertExpiryDate(
                 PayData.builder()
                        .firstBillingDate(LocalDate.of(2019, 1, 31))
@@ -114,7 +114,7 @@ public class ExpiryDateCalculatorTest {
     }
 
     @Test
-    public void 십만원을_납부하면_1년_제공() {
+    void 십만원을_납부하면_1년_제공() {
         assertExpiryDate(
                 PayData.builder()
                        .billingDate(LocalDate.of(2019, 1, 28))
