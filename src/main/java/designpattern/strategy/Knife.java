@@ -1,4 +1,4 @@
-package design_pattern.strategy;
+package designpattern.strategy;
 
 public class Knife implements Weapon {
 

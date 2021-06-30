@@ -1,4 +1,4 @@
-package design_pattern.strategy;
+package designpattern.strategy;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
