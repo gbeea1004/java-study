@@ -11,12 +11,17 @@ public class Calculator {
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(filePath));
-            Integer result = 0;
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                result += Integer.valueOf(line);
-            }
-            return result;
+            return new BufferedReaderCallback() {
+                @Override
+                public Integer doSomethingWithReader(BufferedReader br) throws IOException {
+                    Integer result = 0;
+                    String line = null;
+                    while ((line = br.readLine()) != null) {
+                        result += Integer.valueOf(line);
+                    }
+                    return result;
+                }
+            }.doSomethingWithReader(br);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -37,12 +42,17 @@ public class Calculator {
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(filePath));
-            Integer result = 1;
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                result *= Integer.valueOf(line);
-            }
-            return result;
+            return new BufferedReaderCallback() {
+                @Override
+                public Integer doSomethingWithReader(BufferedReader br) throws IOException {
+                    Integer result = 1;
+                    String line = null;
+                    while ((line = br.readLine()) != null) {
+                        result *= Integer.valueOf(line);
+                    }
+                    return result;
+                }
+            }.doSomethingWithReader(br);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
