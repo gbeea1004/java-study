@@ -8,51 +8,42 @@ import java.io.IOException;
 public class Calculator {
 
     public int calcSum(String filePath) {
-        BufferedReader br = null;
-        try {
-            br = new BufferedReader(new FileReader(filePath));
-            return new BufferedReaderCallback() {
-                @Override
-                public Integer doSomethingWithReader(BufferedReader br) throws IOException {
-                    Integer result = 0;
-                    String line = null;
-                    while ((line = br.readLine()) != null) {
-                        result += Integer.valueOf(line);
-                    }
-                    return result;
+        BufferedReaderCallback sumCallback = new BufferedReaderCallback() {
+            @Override
+            public Integer doSomethingWithReader(BufferedReader br) throws IOException {
+                Integer result = 0;
+                String line = null;
+                while ((line = br.readLine()) != null) {
+                    result += Integer.valueOf(line);
                 }
-            }.doSomethingWithReader(br);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                return result;
             }
-        }
-        return 0;
+        };
+
+        return fileReadTemplate(filePath, sumCallback);
     }
 
     public int calcMultiply(String filePath) {
+        BufferedReaderCallback multiplyCallback = new BufferedReaderCallback() {
+            @Override
+            public Integer doSomethingWithReader(BufferedReader br) throws IOException {
+                Integer result = 1;
+                String line = null;
+                while ((line = br.readLine()) != null) {
+                    result *= Integer.valueOf(line);
+                }
+                return result;
+            }
+        };
+
+        return fileReadTemplate(filePath, multiplyCallback);
+    }
+
+    private Integer fileReadTemplate(String filePath, BufferedReaderCallback callback) {
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(filePath));
-            return new BufferedReaderCallback() {
-                @Override
-                public Integer doSomethingWithReader(BufferedReader br) throws IOException {
-                    Integer result = 1;
-                    String line = null;
-                    while ((line = br.readLine()) != null) {
-                        result *= Integer.valueOf(line);
-                    }
-                    return result;
-                }
-            }.doSomethingWithReader(br);
+            return callback.doSomethingWithReader(br);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
